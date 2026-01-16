@@ -1,0 +1,136 @@
+'use client';
+
+import { useEffect, useState, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+const navItems = [
+  { id: 'about', label: 'About' },
+  { id: 'expertise', label: 'Expertise' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'work', label: 'Work' },
+  { id: 'contact', label: 'Contact' },
+];
+
+export default function Navigation() {
+  const [activeSection, setActiveSection] = useState('');
+  const [isScrolled, setIsScrolled] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    // Track scroll position for nav background
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Set up ScrollTrigger for each section
+    navItems.forEach(({ id }) => {
+      const element = document.getElementById(id);
+      if (element) {
+        ScrollTrigger.create({
+          trigger: element,
+          start: 'top center',
+          end: 'bottom center',
+          onEnter: () => setActiveSection(id),
+          onEnterBack: () => setActiveSection(id),
+        });
+      }
+    });
+
+    // Animate nav in on load
+    if (navRef.current) {
+      gsap.fromTo(
+        navRef.current,
+        { y: -100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, delay: 0.5, ease: 'power3.out' }
+      );
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <nav
+      ref={navRef}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-concrete/95 backdrop-blur-sm border-b-[3px] border-ink'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo/Name */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="font-mono text-sm font-bold uppercase tracking-wider hover:text-accent-red transition-colors"
+          >
+            [TPM]
+          </button>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-1">
+            {navItems.map(({ id, label }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`relative px-4 py-2 font-mono text-xs uppercase tracking-wider transition-all duration-200 ${
+                  activeSection === id
+                    ? 'text-accent-red'
+                    : 'text-ink hover:text-accent-red'
+                }`}
+              >
+                {label}
+                {activeSection === id && (
+                  <span className="absolute bottom-0 left-4 right-4 h-[3px] bg-accent-red" />
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="hidden md:block btn-brutal text-xs py-2 px-4"
+          >
+            Get in Touch
+          </button>
+
+          {/* Mobile Menu Button */}
+          <button className="md:hidden p-2 border-[3px] border-ink hover:bg-ink hover:text-concrete transition-colors">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                strokeLinecap="square"
+                strokeLinejoin="miter"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
+}
