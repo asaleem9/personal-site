@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "type": "command",
+        "command": ".claude/hooks/stop-check-commits.sh",
+        "blocking": true
+      }
+    ]
+  }
+}
