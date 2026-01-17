@@ -129,7 +129,7 @@ export default function Navigation() {
             {/* CTA Button */}
             <button
               onClick={() => scrollToSection('contact')}
-              className="hidden md:block btn-brutal text-xs py-2 px-4"
+              className="hidden md:block btn-brutal text-xs py-1.5 px-3"
             >
               Get in Touch
             </button>
@@ -213,7 +213,7 @@ export default function Navigation() {
           <div className="mt-auto">
             <button
               onClick={() => scrollToSection('contact')}
-              className="btn-brutal btn-brutal--accent w-full text-sm"
+              className="btn-brutal btn-brutal--accent w-full text-xs py-2"
             >
               Get in Touch
             </button>
