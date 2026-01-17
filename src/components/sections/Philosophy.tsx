@@ -94,7 +94,7 @@ export default function Philosophy() {
     >
       {/* Section number */}
       <span className="absolute top-8 right-8 font-mono text-8xl font-bold text-concrete/5 select-none hidden lg:block">
-        06
+        07
       </span>
 
       {/* Main Quote Section */}
