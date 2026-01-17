@@ -56,7 +56,7 @@ export default function Footer() {
               [AS]
             </button>
             <p className="text-concrete/60 text-sm leading-relaxed">
-              Ali Saleem — Lead TPM shipping infrastructure for 100M+ users.
+              Ali Saleem. Lead TPM shipping infrastructure for 100M+ users.
               Currently at Dave, previously Hulu/Disney.
             </p>
           </div>

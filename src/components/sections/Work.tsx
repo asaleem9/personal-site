@@ -14,7 +14,7 @@ const projects = [
     title: 'Traffic Management Platform',
     category: 'Platform Engineering',
     description:
-      'Owned the roadmap for Hulu\'s traffic management platform—the ingress layer routing every request across public and internal networks via service mesh.',
+      'Owned the roadmap for Hulu\'s traffic management platform, the ingress layer routing every request across public and internal networks via service mesh.',
     challenge:
       'Hulu needed modern traffic routing capabilities including IPv6 support, advanced traffic shaping, and reliable service-to-service communication at massive scale.',
     approach:
@@ -30,29 +30,10 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Project Margaret',
-    category: 'Developer Experience',
-    description:
-      'Shipped a web framework that fundamentally changed how Hulu engineers build internal applications—reducing development time by 20%.',
-    challenge:
-      'Engineers were repeatedly building similar internal tools from scratch, wasting time on boilerplate infrastructure instead of solving business problems.',
-    approach:
-      'Owned the roadmap and delivery of a standardized web framework that abstracted common patterns while remaining flexible for different use cases.',
-    outcome:
-      'Measurable 20% reduction in internal application development time. Engineers could focus on features instead of reinventing infrastructure.',
-    technologies: ['React', 'Internal Frameworks', 'DevX Tooling'],
-    metrics: [
-      { label: 'Dev Time Saved', value: '20%' },
-      { label: 'Internal Tools', value: 'Standardized' },
-      { label: 'Adoption', value: 'Company-wide' },
-    ],
-  },
-  {
-    id: 3,
     title: 'Metadata Platform',
     category: 'Multi-Brand Infrastructure',
     description:
-      'Enhanced the infrastructure powering content discovery and personalization across Disney\'s entire streaming portfolio—Hulu, Disney+, and ESPN.',
+      'Enhanced the infrastructure powering content discovery and personalization across Disney\'s entire streaming portfolio including Hulu, Disney+, and ESPN.',
     challenge:
       'Content metadata infrastructure needed to scale across multiple brands while maintaining personalization quality for 100M+ combined users.',
     approach:
@@ -67,7 +48,7 @@ const projects = [
     ],
   },
   {
-    id: 4,
+    id: 3,
     title: 'AWS Data Migration',
     category: 'Cloud Infrastructure',
     description:
@@ -280,15 +261,14 @@ export default function Work() {
             Programs <span className="text-accent-red">That Shipped</span>
           </h2>
           <p className="body-lg text-ink-soft mt-6">
-            A selection of initiatives I&apos;ve led—from infrastructure
-            transformations to developer platforms.
+            Key programs I&apos;ve shipped across infrastructure and platforms.
           </p>
         </div>
 
         {/* Projects Grid */}
         <div
           ref={gridRef}
-          className="grid lg:grid-cols-2 gap-6"
+          className="grid lg:grid-cols-3 gap-6"
         >
           {projects.map((project, index) => (
             <ProjectCard

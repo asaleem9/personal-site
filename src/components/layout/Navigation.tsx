@@ -103,7 +103,7 @@ export default function Navigation() {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="font-mono text-sm font-bold uppercase tracking-wider hover:text-accent-red transition-colors"
             >
-              [TPM]
+              Ali Saleem
             </button>
 
             {/* Desktop Navigation */}

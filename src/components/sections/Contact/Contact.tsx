@@ -185,7 +185,7 @@ export default function Contact() {
               Building something at scale? Need a TPM who actually understands
               the architecture? Whether you&apos;re scaling infrastructure,
               improving developer experience, or shipping platforms that need
-              to work when the SuperBowl is on—let&apos;s talk.
+              to work when the SuperBowl is on, let&apos;s talk.
             </p>
 
             {/* Social Links */}

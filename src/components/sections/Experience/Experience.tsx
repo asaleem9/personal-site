@@ -12,7 +12,7 @@ const chapters = [
   {
     id: 1,
     period: '2025 - Present',
-    role: 'Lead Technical Program Manager',
+    role: 'Technical Program Manager',
     company: 'Dave',
     location: 'Remote',
     highlight: 'Leading DevX, SRE, and Security Engineering for a fintech serving millions',
@@ -27,7 +27,7 @@ const chapters = [
   {
     id: 2,
     period: '2019 - 2025',
-    role: 'Lead Technical Program Manager',
+    role: 'Technical Program Manager',
     company: 'Hulu / Disney Streaming',
     location: 'Santa Monica, CA',
     highlight: 'Shipped the traffic platform that routes every request for 50M+ users',
@@ -229,7 +229,7 @@ export default function Experience() {
               A Decade of <span className="text-accent-red">Shipping</span>
             </h2>
             <p className="body-lg text-concrete/70 mt-6">
-              My journey through the world of technical program management—from
+              My journey through technical program management, from
               early startup chaos to enterprise scale.
             </p>
           </div>

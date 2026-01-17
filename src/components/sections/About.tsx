@@ -151,7 +151,7 @@ export default function About() {
               <div className="relative border-[4px] border-ink overflow-hidden">
                 <Image
                   src={HEADSHOT_URL}
-                  alt="Ali Saleem - Lead Technical Program Manager"
+                  alt="Ali Saleem - Technical Program Manager"
                   width={400}
                   height={500}
                   className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-500"
@@ -168,7 +168,7 @@ export default function About() {
           <div ref={bioRef} className="space-y-6">
             <p className="body-lg">
               I&apos;ve spent the last decade shipping critical infrastructure at
-              companies like Hulu, Disney+, and now Dave—platforms where failure
+              companies like Hulu, Disney+, and now Dave. Platforms where failure
               isn&apos;t an option and millions of users notice when things break.
             </p>
 
@@ -180,7 +180,7 @@ export default function About() {
             </p>
 
             <p className="body-md text-ink-soft">
-              What sets me apart: I don&apos;t just manage projects—I build the systems
+              What sets me apart: I don&apos;t just manage projects. I build the systems
               that make entire engineering organizations faster. Traffic management
               platforms, developer tooling, chaos testing frameworks. The infrastructure
               that lets other teams move with confidence.
