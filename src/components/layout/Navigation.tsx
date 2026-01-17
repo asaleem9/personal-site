@@ -21,6 +21,7 @@ const navItems = [
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -60,11 +61,29 @@ export default function Navigation() {
     };
   }, []);
 
+  // Close mobile menu on scroll
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const scrollToSection = (id: string) => {
+    setIsMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -115,22 +134,87 @@ export default function Navigation() {
           </button>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden p-2 border-[3px] border-ink hover:bg-ink hover:text-concrete transition-colors">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2.5}
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="square"
-                strokeLinejoin="miter"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
+          <button
+            onClick={toggleMobileMenu}
+            className="md:hidden p-2 border-[3px] border-ink hover:bg-ink hover:text-concrete transition-colors"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isMobileMenuOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  strokeLinecap="square"
+                  strokeLinejoin="miter"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  strokeLinecap="square"
+                  strokeLinejoin="miter"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            )}
           </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 bg-ink/50 backdrop-blur-sm z-40 md:hidden transition-opacity duration-300 ${
+          isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      />
+
+      {/* Mobile Menu Panel */}
+      <div
+        className={`fixed top-0 right-0 h-full w-[280px] bg-concrete border-l-[3px] border-ink z-50 md:hidden transform transition-transform duration-300 ease-out ${
+          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col h-full pt-24 pb-8 px-6">
+          {/* Nav Items */}
+          <div className="flex flex-col gap-2">
+            {navItems.map(({ id, label }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`text-left py-3 px-4 font-mono text-sm uppercase tracking-wider border-[2px] transition-all duration-200 ${
+                  activeSection === id
+                    ? 'border-accent-red bg-accent-red text-concrete'
+                    : 'border-ink hover:bg-ink hover:text-concrete'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          {/* CTA at bottom */}
+          <div className="mt-auto">
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="btn-brutal btn-brutal--accent w-full text-sm"
+            >
+              Get in Touch
+            </button>
+          </div>
         </div>
       </div>
     </nav>
