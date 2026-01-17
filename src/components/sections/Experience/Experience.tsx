@@ -12,7 +12,7 @@ const chapters = [
   {
     id: 1,
     period: '2025 - Present',
-    role: 'Technical Program Manager',
+    role: 'Lead Technical Program Manager',
     company: 'Dave',
     location: 'Remote',
     highlight: 'Leading DevX, SRE, and Security Engineering for a fintech serving millions',
@@ -27,7 +27,7 @@ const chapters = [
   {
     id: 2,
     period: '2019 - 2025',
-    role: 'Technical Program Manager',
+    role: 'Lead Technical Program Manager',
     company: 'Hulu / Disney Streaming',
     location: 'Santa Monica, CA',
     highlight: 'Shipped the traffic platform that routes every request for 50M+ users',
