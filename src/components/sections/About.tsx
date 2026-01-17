@@ -127,24 +127,14 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left column - Heading & Photo */}
+          {/* Left column - Photo Hero & Heading */}
           <div>
-            <h2
-              ref={headingRef}
-              className="heading-lg mb-8"
-            >
-              <span className="block text-muted font-mono text-sm uppercase tracking-wider mb-4">
-                About
-              </span>
-              I Turn Complex
-              <br />
-              <span className="text-accent-red">Technical Challenges</span>
-              <br />
-              Into Delivered Products
-            </h2>
+            <span className="block text-muted font-mono text-sm uppercase tracking-wider mb-6">
+              About
+            </span>
 
-            {/* Professional Headshot */}
-            <div ref={photoRef} className="relative mt-10 max-w-sm hidden lg:block">
+            {/* Professional Headshot - Hero */}
+            <div ref={photoRef} className="relative max-w-xs mb-6">
               {/* Brutalist offset shadow */}
               <div className="absolute inset-0 bg-ink translate-x-3 translate-y-3" />
               {/* Photo container */}
@@ -152,16 +142,22 @@ export default function About() {
                 <Image
                   src={HEADSHOT_URL}
                   alt="Ali Saleem - Technical Program Manager"
-                  width={400}
-                  height={500}
+                  width={320}
+                  height={400}
                   className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>
-              {/* Caption */}
-              <p className="font-mono text-xs text-muted mt-4 uppercase tracking-wider">
-                [ Ali Saleem ]
-              </p>
             </div>
+
+            {/* Heading below photo */}
+            <h2
+              ref={headingRef}
+              className="text-[clamp(1.5rem,4vw,2.25rem)] font-bold uppercase leading-[1.1] tracking-[-0.02em]"
+            >
+              Turning <span className="text-accent-red">Complexity</span>
+              <br />
+              Into Shipped Products
+            </h2>
           </div>
 
           {/* Right column - Bio */}

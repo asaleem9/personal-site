@@ -5,14 +5,17 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Float, Environment } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Concrete-like material - using darker tones for contrast with text
-function ConcreteMaterial({ color = '#2A2A2A' }: { color?: string }) {
+// Concrete-like material - translucent so text remains visible
+function ConcreteMaterial({ color = '#2A2A2A', opacity = 0.4 }: { color?: string; opacity?: number }) {
   return (
     <meshStandardMaterial
       color={color}
       roughness={0.9}
       metalness={0.1}
       flatShading
+      transparent
+      opacity={opacity}
+      depthWrite={false}
     />
   );
 }

@@ -103,7 +103,7 @@ export default function Hero() {
           {/* Main Title */}
           <h1
             ref={titleRef}
-            className="heading-xl mb-8"
+            className="text-[clamp(2.5rem,8vw,6rem)] font-bold uppercase leading-[1.1] tracking-[-0.04em] mb-6"
             style={{ perspective: '1000px' }}
           >
             <span className="title-line block">Turning Technical</span>
@@ -116,34 +116,35 @@ export default function Hero() {
           {/* Subtitle */}
           <p
             ref={subtitleRef}
-            className="body-lg text-ink-soft max-w-xl leading-relaxed"
+            className="body-md text-ink-soft max-w-lg leading-relaxed"
           >
-            I build the platforms that power streaming for 100M+ users and make
-            engineering teams 20% more productive. Currently at Dave, previously
-            Hulu/Disney.
+            I build the platforms that power streaming at scale and help engineering teams ship faster.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 mt-10">
+          {/* Scroll indicator */}
+          <div className="mt-6">
             <button
               onClick={() =>
                 document
-                  .getElementById('work')
+                  .getElementById('about')
                   ?.scrollIntoView({ behavior: 'smooth' })
               }
-              className="btn-brutal"
+              className="group flex items-center gap-4"
             >
-              View My Work
-            </button>
-            <button
-              onClick={() =>
-                document
-                  .getElementById('contact')
-                  ?.scrollIntoView({ behavior: 'smooth' })
-              }
-              className="btn-brutal btn-brutal--outline"
-            >
-              Get in Touch
+              <div className="w-12 h-12 border-[3px] border-ink flex items-center justify-center group-hover:bg-ink group-hover:text-concrete transition-colors">
+                <svg
+                  className="w-5 h-5 animate-bounce"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="font-mono text-xs uppercase tracking-wider text-muted">Keep scrolling</span>
+                <span className="font-bold text-sm">There&apos;s more below</span>
+              </div>
             </button>
           </div>
         </div>
