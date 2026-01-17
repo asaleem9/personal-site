@@ -192,8 +192,7 @@ export default function Expertise() {
             Core <span className="text-accent-red">Competencies</span>
           </h2>
           <p className="body-lg text-ink-soft mt-6">
-            The skills and disciplines I&apos;ve honed over a decade of shipping
-            software at scale.
+            A decade of shipping software at scale.
           </p>
         </div>
 
