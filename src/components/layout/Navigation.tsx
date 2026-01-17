@@ -87,94 +87,96 @@ export default function Navigation() {
   };
 
   return (
-    <nav
-      ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-concrete/95 backdrop-blur-sm border-b-[3px] border-ink'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo/Name */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="font-mono text-sm font-bold uppercase tracking-wider hover:text-accent-red transition-colors"
-          >
-            [TPM]
-          </button>
+    <>
+      <nav
+        ref={navRef}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-concrete/95 backdrop-blur-sm border-b-[3px] border-ink'
+            : 'bg-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo/Name */}
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="font-mono text-sm font-bold uppercase tracking-wider hover:text-accent-red transition-colors"
+            >
+              [TPM]
+            </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
-            {navItems.map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`relative px-4 py-2 font-mono text-xs uppercase tracking-wider transition-all duration-200 ${
-                  activeSection === id
-                    ? 'text-accent-red'
-                    : 'text-ink hover:text-accent-red'
-                }`}
-              >
-                {label}
-                {activeSection === id && (
-                  <span className="absolute bottom-0 left-4 right-4 h-[3px] bg-accent-red" />
-                )}
-              </button>
-            ))}
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-1">
+              {navItems.map(({ id, label }) => (
+                <button
+                  key={id}
+                  onClick={() => scrollToSection(id)}
+                  className={`relative px-4 py-2 font-mono text-xs uppercase tracking-wider transition-all duration-200 ${
+                    activeSection === id
+                      ? 'text-accent-red'
+                      : 'text-ink hover:text-accent-red'
+                  }`}
+                >
+                  {label}
+                  {activeSection === id && (
+                    <span className="absolute bottom-0 left-4 right-4 h-[3px] bg-accent-red" />
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="hidden md:block btn-brutal text-xs py-2 px-4"
+            >
+              Get in Touch
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="md:hidden p-2 border-[3px] border-ink hover:bg-ink hover:text-concrete transition-colors relative z-[60] bg-concrete"
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            >
+              {isMobileMenuOpen ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="square"
+                    strokeLinejoin="miter"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="square"
+                    strokeLinejoin="miter"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              )}
+            </button>
           </div>
-
-          {/* CTA Button */}
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="hidden md:block btn-brutal text-xs py-2 px-4"
-          >
-            Get in Touch
-          </button>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMobileMenu}
-            className="md:hidden p-2 border-[3px] border-ink hover:bg-ink hover:text-concrete transition-colors relative z-[120] bg-concrete"
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-          >
-            {isMobileMenuOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2.5}
-                stroke="currentColor"
-                className="w-5 h-5"
-              >
-                <path
-                  strokeLinecap="square"
-                  strokeLinejoin="miter"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2.5}
-                stroke="currentColor"
-                className="w-5 h-5"
-              >
-                <path
-                  strokeLinecap="square"
-                  strokeLinejoin="miter"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
-            )}
-          </button>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - Outside nav for proper z-index */}
       <div
         className={`fixed inset-0 bg-ink/80 z-[100] md:hidden transition-opacity duration-300 ${
           isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
@@ -182,11 +184,12 @@ export default function Navigation() {
         onClick={() => setIsMobileMenuOpen(false)}
       />
 
-      {/* Mobile Menu Panel */}
+      {/* Mobile Menu Panel - Outside nav for proper z-index */}
       <div
-        className={`fixed top-0 right-0 h-full w-[280px] bg-[#e8e4df] border-l-[3px] border-ink z-[110] md:hidden transform transition-transform duration-300 ease-out shadow-2xl ${
+        className={`fixed top-0 right-0 h-full w-[280px] border-l-[3px] border-ink z-[110] md:hidden transform transition-transform duration-300 ease-out shadow-2xl ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
+        style={{ backgroundColor: '#e8e4df' }}
       >
         <div className="flex flex-col h-full pt-24 pb-8 px-6">
           {/* Nav Items */}
@@ -198,7 +201,7 @@ export default function Navigation() {
                 className={`text-left py-3 px-4 font-mono text-sm uppercase tracking-wider border-[2px] transition-all duration-200 ${
                   activeSection === id
                     ? 'border-accent-red bg-accent-red text-concrete'
-                    : 'border-ink hover:bg-ink hover:text-concrete'
+                    : 'border-ink hover:bg-ink hover:text-concrete bg-[#e8e4df]'
                 }`}
               >
                 {label}
@@ -217,6 +220,6 @@ export default function Navigation() {
           </div>
         </div>
       </div>
-    </nav>
+    </>
   );
 }
