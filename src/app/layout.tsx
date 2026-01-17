@@ -25,21 +25,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Technical Program Manager | 10 Years Building Software at Scale',
-  description:
-    'Portfolio of a Technical Program Manager with 10 years of experience driving complex software initiatives, leading cross-functional teams, and delivering results.',
-  keywords: [
-    'Technical Program Manager',
-    'TPM',
-    'Software Engineering',
-    'Program Management',
-    'Portfolio',
-  ],
-  authors: [{ name: 'TPM Portfolio' }],
-  openGraph: {
-    title: 'Technical Program Manager Portfolio',
-    description: '10 years of building software at scale',
-    type: 'website',
+  title: 'Portfolio',
+  description: 'Personal portfolio site',
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+    },
   },
 };
 
