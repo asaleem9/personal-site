@@ -97,7 +97,7 @@ export default function Hero() {
             ref={tagRef}
             className="inline-block font-mono text-xs uppercase tracking-[0.2em] text-muted mb-6 border-[2px] border-ink px-3 py-1"
           >
-            Lead Technical Program Manager
+            Technical Program Manager
           </span>
 
           {/* Main Title */}

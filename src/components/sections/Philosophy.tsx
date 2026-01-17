@@ -13,7 +13,7 @@ const principles = [
     number: '01',
     title: 'Build Platforms, Not Projects',
     description:
-      'I think beyond the immediate deliverable. The best programs create infrastructure that makes every future project easier—like Project Margaret cutting dev time by 20%.',
+      'I think beyond the immediate deliverable. The best programs create infrastructure that makes every future project easier.',
   },
   {
     number: '02',
@@ -31,7 +31,7 @@ const principles = [
     number: '04',
     title: 'Ship Relentlessly',
     description:
-      'Plans are worthless without execution. I measure success in production deployments, user impact, and teams unblocked—not decks delivered or meetings held.',
+      'Plans are worthless without execution. I measure success in production deployments, user impact, and teams unblocked. Not decks delivered or meetings held.',
   },
 ];
 
@@ -106,7 +106,7 @@ export default function Philosophy() {
             </span>
 
             <blockquote className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8">
-              &ldquo;I don&apos;t just manage projects—I{' '}
+              &ldquo;I don&apos;t just manage projects. I{' '}
               <span className="text-accent-red">build the systems</span> that
               make entire engineering organizations{' '}
               <span className="text-accent-blue">move faster</span>.&rdquo;
@@ -115,7 +115,7 @@ export default function Philosophy() {
             <p className="body-lg text-concrete/60 max-w-2xl">
               A decade of shipping taught me that the best TPMs are multipliers.
               Traffic management platforms, developer tooling, chaos testing
-              frameworks—these aren&apos;t just projects, they&apos;re force
+              frameworks. These aren&apos;t just projects, they&apos;re force
               multipliers. When I build a system that cuts internal app
               development time by 20%, that&apos;s thousands of engineering
               hours returned to actual innovation.
