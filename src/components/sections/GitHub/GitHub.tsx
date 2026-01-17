@@ -205,7 +205,7 @@ export default function GitHub() {
             GitHub <span className="text-accent-red">Repositories</span>
           </h2>
           <p className="body-lg text-ink-soft mt-6">
-            Personal projects, experiments, and contributions to open source.
+            Personal projects, experiments, and open source contributions.
           </p>
         </div>
 
