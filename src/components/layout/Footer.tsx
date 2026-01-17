@@ -94,7 +94,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="https://www.linkedin.com/in/alisaleem4412/"
+                  href="https://www.linkedin.com/in/asaleem9"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-concrete/60 hover:text-accent-red transition-colors text-sm"
@@ -104,7 +104,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/alisaleem4412"
+                  href="https://github.com/asaleem9"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-concrete/60 hover:text-accent-red transition-colors text-sm"
