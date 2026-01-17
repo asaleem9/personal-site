@@ -150,7 +150,7 @@ export default function Contact() {
     >
       {/* Section number */}
       <span className="absolute top-8 right-8 font-mono text-8xl font-bold text-ink/5 select-none hidden lg:block">
-        07
+        08
       </span>
 
       <div className="max-w-7xl mx-auto">
