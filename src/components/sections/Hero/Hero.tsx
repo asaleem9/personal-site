@@ -22,7 +22,6 @@ export default function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const tagRef = useRef<HTMLSpanElement>(null);
-  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -65,27 +64,10 @@ export default function Hero() {
           0.6
         );
       }
-
-      // Animate scroll indicator
-      if (scrollIndicatorRef.current) {
-        tl.fromTo(
-          scrollIndicatorRef.current,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.4 },
-          1
-        );
-      }
     }, heroRef);
 
     return () => ctx.revert();
   }, []);
-
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section
@@ -108,7 +90,7 @@ export default function Hero() {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-32 md:pb-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24">
         <div className="max-w-4xl">
           {/* Tag */}
           <span
@@ -166,23 +148,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <div
-        ref={scrollIndicatorRef}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 cursor-pointer"
-        onClick={scrollToAbout}
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span className="font-mono text-xs uppercase tracking-wider text-muted">
-            Scroll
-          </span>
-          <div className="w-[2px] h-12 bg-ink relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1/2 bg-accent-red animate-bounce-slow" />
-          </div>
-        </div>
-      </div>
-
 
       {/* Grid overlay hint */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.02]">
