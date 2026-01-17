@@ -43,3 +43,6 @@ next-env.d.ts
 # local dev artifacts
 .playwright-mcp/
 .dev-notes
+
+# Claude Code configuration and instructions (local only)
+.claude/
