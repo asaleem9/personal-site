@@ -112,14 +112,6 @@ export default function Footer() {
                   GitHub
                 </a>
               </li>
-              <li>
-                <a
-                  href="mailto:alisaleem4412@gmail.com"
-                  className="text-concrete/60 hover:text-accent-red transition-colors text-sm"
-                >
-                  Email
-                </a>
-              </li>
             </ul>
           </div>
         </div>
