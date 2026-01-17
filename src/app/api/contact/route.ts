@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 interface ContactFormData {
   name: string;
@@ -28,34 +31,37 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // TODO: Integrate with Resend or another email service
-    // For now, we'll just log the message and return success
-    //
-    // To use Resend:
-    // 1. Install: npm install resend
-    // 2. Add RESEND_API_KEY to your .env.local
-    // 3. Uncomment and configure the code below:
-    //
-    // import { Resend } from 'resend';
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    //
-    // await resend.emails.send({
-    //   from: 'Portfolio <noreply@yourdomain.com>',
-    //   to: ['your-email@example.com'],
-    //   subject: `New Contact: ${name}`,
-    //   html: `
-    //     <h2>New Contact Form Submission</h2>
-    //     <p><strong>Name:</strong> ${name}</p>
-    //     <p><strong>Email:</strong> ${email}</p>
-    //     <p><strong>Message:</strong></p>
-    //     <p>${message.replace(/\n/g, '<br>')}</p>
-    //   `,
-    // });
+    // Send email via Resend
+    const { error: resendError } = await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>',
+      to: ['alisaleem4412@gmail.com'],
+      replyTo: email,
+      subject: `Portfolio Contact: ${name}`,
+      html: `
+        <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #0A0A0A; border-bottom: 3px solid #FF3D00; padding-bottom: 8px;">
+            New Contact Form Submission
+          </h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+          <p><strong>Message:</strong></p>
+          <div style="background: #F5F5F0; padding: 16px; border-left: 3px solid #0A0A0A;">
+            ${message.replace(/\n/g, '<br>')}
+          </div>
+        </div>
+      `,
+    });
 
-    console.log('Contact form submission:', { name, email, message });
+    if (resendError) {
+      console.error('Resend error:', resendError);
+      return NextResponse.json(
+        { error: 'Failed to send email' },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json(
-      { success: true, message: 'Message received successfully' },
+      { success: true, message: 'Message sent successfully' },
       { status: 200 }
     );
   } catch (error) {
