@@ -10,46 +10,25 @@ if (typeof window !== 'undefined') {
 
 const expertiseAreas = [
   {
-    title: 'Program Strategy',
+    title: 'Delivery Excellence',
     description:
-      'Defining roadmaps, setting milestones, and aligning technical initiatives with business objectives.',
+      'Shipping software reliably through structured processes and continuous improvement.',
     icon: '01',
-    skills: ['Roadmap Planning', 'OKR Definition', 'Risk Management', 'Resource Allocation'],
-  },
-  {
-    title: 'Cross-Functional Leadership',
-    description:
-      'Building bridges between engineering, product, design, and business stakeholders.',
-    icon: '02',
-    skills: ['Stakeholder Management', 'Executive Communication', 'Conflict Resolution', 'Team Building'],
+    skills: ['Agile/Scrum', 'Release Management', 'Quality Assurance', 'Incident Response'],
   },
   {
     title: 'Technical Architecture',
     description:
       'Deep technical fluency to drive system design decisions and technical trade-offs.',
-    icon: '03',
+    icon: '02',
     skills: ['System Design', 'API Strategy', 'Infrastructure', 'Security & Compliance'],
   },
   {
-    title: 'Delivery Excellence',
+    title: 'Program Strategy',
     description:
-      'Shipping software reliably through structured processes and continuous improvement.',
-    icon: '04',
-    skills: ['Agile/Scrum', 'Release Management', 'Quality Assurance', 'Incident Response'],
-  },
-  {
-    title: 'Data-Driven Decisions',
-    description:
-      'Using metrics and analytics to inform strategy and measure impact.',
-    icon: '05',
-    skills: ['KPI Definition', 'Analytics', 'A/B Testing', 'Performance Monitoring'],
-  },
-  {
-    title: 'Technical Communication',
-    description:
-      'Translating complex technical concepts for diverse audiences.',
-    icon: '06',
-    skills: ['Documentation', 'Technical Writing', 'Presentations', 'Training'],
+      'Defining roadmaps, setting milestones, and aligning technical initiatives with business objectives.',
+    icon: '03',
+    skills: ['Roadmap Planning', 'OKR Definition', 'Risk Management', 'Resource Allocation'],
   },
 ];
 
