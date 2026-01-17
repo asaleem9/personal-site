@@ -5,6 +5,7 @@ export interface GitHubRepo {
   name: string;
   description: string | null;
   html_url: string;
+  homepage: string | null;
   language: string | null;
   stargazers_count: number;
   forks_count: number;
@@ -17,6 +18,7 @@ interface GitHubAPIRepo {
   name: string;
   description: string | null;
   html_url: string;
+  homepage: string | null;
   language: string | null;
   stargazers_count: number;
   forks_count: number;
@@ -60,6 +62,7 @@ export async function GET() {
         name: repo.name,
         description: repo.description,
         html_url: repo.html_url,
+        homepage: repo.homepage || null,
         language: repo.language,
         stargazers_count: repo.stargazers_count,
         forks_count: repo.forks_count,

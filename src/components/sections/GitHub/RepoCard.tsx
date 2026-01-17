@@ -97,31 +97,56 @@ export default function RepoCard({ repo }: RepoCardProps) {
         </span>
       </div>
 
-      {/* View on GitHub button */}
-      <a
-        href={repo.html_url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink hover:text-accent-red transition-colors duration-200 group/link"
-      >
-        <span className="relative">
-          View on GitHub
-          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red group-hover/link:w-full transition-all duration-300" />
-        </span>
-        <svg
-          className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-200"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      {/* Action buttons */}
+      <div className="flex items-center gap-4">
+        {repo.homepage && (
+          <a
+            href={repo.homepage}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-concrete bg-ink px-3 py-2 hover:bg-accent-red transition-colors duration-200 group/link"
+          >
+            <span>Live Demo</span>
+            <svg
+              className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              />
+            </svg>
+          </a>
+        )}
+        <a
+          href={repo.html_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink hover:text-accent-red transition-colors duration-200 group/link"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17 8l4 4m0 0l-4 4m4-4H3"
-          />
-        </svg>
-      </a>
+          <span className="relative">
+            View Code
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-red group-hover/link:w-full transition-all duration-300" />
+          </span>
+          <svg
+            className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-200"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
   );
 }
