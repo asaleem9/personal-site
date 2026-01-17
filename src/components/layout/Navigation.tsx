@@ -136,7 +136,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMobileMenu}
-            className="md:hidden p-2 border-[3px] border-ink hover:bg-ink hover:text-concrete transition-colors"
+            className="md:hidden p-2 border-[3px] border-ink hover:bg-ink hover:text-concrete transition-colors relative z-[120] bg-concrete"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMobileMenuOpen ? (
@@ -176,7 +176,7 @@ export default function Navigation() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-ink/50 backdrop-blur-sm z-40 md:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-ink/80 z-[100] md:hidden transition-opacity duration-300 ${
           isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
@@ -184,7 +184,7 @@ export default function Navigation() {
 
       {/* Mobile Menu Panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-[280px] bg-concrete border-l-[3px] border-ink z-50 md:hidden transform transition-transform duration-300 ease-out ${
+        className={`fixed top-0 right-0 h-full w-[280px] bg-[#e8e4df] border-l-[3px] border-ink z-[110] md:hidden transform transition-transform duration-300 ease-out shadow-2xl ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
